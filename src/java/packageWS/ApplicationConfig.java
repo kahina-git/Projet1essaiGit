@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author Utilisateur
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("areaPlane")
 public class ApplicationConfig extends Application {
 
     @Override
