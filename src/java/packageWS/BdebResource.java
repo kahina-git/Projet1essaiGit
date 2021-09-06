@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package packageWS;
 
 import java.util.Date;
@@ -17,27 +13,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import net.sf.json.JSONObject;
 
-/**
- * REST Web Service
- *
- * @author Utilisateur
- */
+
 @Path("shape")
 public class BdebResource {
 
     @Context
     private UriInfo context;
 
-    /**
-     * Creates a new instance of BdebResource
-     */
+   
     public BdebResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of packageWS.BdebResource
-     * @return an instance of java.lang.String
-     */
+  
     @GET
     @Path("shapeOne&{nameOfShape}&{value1}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -67,13 +54,7 @@ public class BdebResource {
             return circleJSON.toString();
        }
             
-           /* return"{\n" +
-"	\"Status\": \"Error\",\n" +
-"	\"Timestamp\": 12255645,\n" +
-"	\"Shape\": \"CIRRCLE\",\n" +
-"	\"Message\": \"Not the good Shape\"\n" +
-"}";  
-                }*/
+ 
     }
         
     }
