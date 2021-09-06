@@ -41,28 +41,29 @@ public class BdebResource {
     @GET
     @Path("shapeOne&{nameOfShape}&{value1}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getXml(@PathParam("nameOfShape") String nameShape,@PathParam("value1") double radius) {
+    public String circleArea(@PathParam("nameOfShape") String nameShape,@PathParam("value1") double radius) {
        
         double area;
         JSONObject circleJSON=new JSONObject();
            Date date = new Date();
         long timestamp = date.getTime();
-        circleJSON.accumulate("Shape", nameShape);
+        circleJSON.accumulate("Status", "OK");
         circleJSON.accumulate("timestamp", timestamp);
+        circleJSON.accumulate("Shape", nameShape.toUpperCase());
           
             
-       if(nameShape.toUpperCase()=="CIRCLE")
+       if("CIRCLE".equals(nameShape.toUpperCase()))
         { 
             area = Math.pow(radius, 2) * Math.PI;
             
-            circleJSON.accumulate("Status", "OK");
+            
             circleJSON.accumulate("radius", radius);
             circleJSON.accumulate("area", area);
             
         return circleJSON.toString();}
         else{
-          circleJSON.accumulate("Status", "ERROR"); 
-           circleJSON.accumulate("Message", "Not the goog Shape"); 
+          circleJSON.put("Status", "ERROR"); 
+           circleJSON.accumulate("Message", "Not the good Shape"); 
             return circleJSON.toString();
        }
             
