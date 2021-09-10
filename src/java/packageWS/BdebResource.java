@@ -12,11 +12,15 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import net.sf.json.JSONObject;
+import net.sf.json.JSONArray;
+import utils.Utilitaire;
 
 
 @Path("shape")
 public class BdebResource {
 
+    JSONArray shapesList= new JSONArray();
+     JSONObject shape = new JSONObject();
     @Context
     private UriInfo context;
 
@@ -55,6 +59,16 @@ public class BdebResource {
        }
             
  
+    }
+    
+    
+    @GET
+    @Path("shapeTwo&{ShapeName}&{valb}&{valh}")
+    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    public String getJson(@PathParam("ShapeName")String name,@PathParam("valb")double base,@PathParam("valh")double heigth) {
+       
+        JSONObject shape = Utilitaire.CreerJson(shapesList,name,base,heigth);
+        return shape.toString();
     }
         
     }
